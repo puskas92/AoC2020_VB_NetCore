@@ -1,6 +1,8 @@
 Imports System
 Module Program
     Sub Main(args As String())
+        ' Dim sw As New Stopwatch
+        'sw.Start()
         'Day01.Day01_main()
         'Day02.Day02_main()
         'Day03.Day03_main()
@@ -17,8 +19,8 @@ Module Program
         'Day14.Day14_main()
         'Day15.Day15_main()
         'Day16.Day16_main()
-        Day17.Day17_main()
-        'Day18.Day18_main()
+        'Day17.Day17_main()
+        Day18.Day18_main()
         'Day19.Day19_main()
         'Day20.Day20_main()
         'Day21.Day21_main()
@@ -26,7 +28,8 @@ Module Program
         'Day23.Day23_main()
         'Day24.Day24_main()
         'Day25.Day25_main()
-
+        'sw.Stop()
+        'Console.WriteLine(sw.ElapsedMilliseconds & " ms")
         Console.ReadLine()
 
     End Sub

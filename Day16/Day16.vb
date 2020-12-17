@@ -82,7 +82,7 @@
         Dim multi As Int64 = 1
         For i = 0 To input.MyTicket.Count - 1
             If PossibleNames(i).Count > 0 Then
-                Console.WriteLine(PossibleNames(i)(0) & ": " & input.MyTicket(i))
+                ' Console.WriteLine(PossibleNames(i)(0) & ": " & input.MyTicket(i))
                 If PossibleNames(i)(0).Contains("departure") Then multi *= Convert.ToInt64(input.MyTicket(i))
             End If
 

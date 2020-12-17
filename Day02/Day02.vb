@@ -5,8 +5,8 @@
         Debug.Assert(testPWs.LongCount(Function(f) f.isValid2) = 1)
 
         Dim PWs As List(Of Day02_PW_Record) = Day02_ReadInput("Day02\Day02_input.txt")
-        Console.WriteLine("Day02 Part 1: " & PWs.LongCount(Function(f) f.isValid))
-        Console.WriteLine("Day02 Part 2: " & PWs.LongCount(Function(f) f.isValid2))
+        Console.WriteLine("Day02 Part1: " & PWs.LongCount(Function(f) f.isValid))
+        Console.WriteLine("Day02 Part2: " & PWs.LongCount(Function(f) f.isValid2))
     End Sub
 
     Public Class Day02_PW_Record
