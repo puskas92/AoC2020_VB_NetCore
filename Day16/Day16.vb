@@ -21,7 +21,13 @@
 
     Public Function Day16_Part02(input As Day16_input) As Int64
         'remove invalid
-        input.OtherTickets.RemoveAll(Function(f) f.Sum(Function(g) If(input.Validators.Any(Function(h) h.isNumberValid(g)), 0, g)) > 0)
+        'input.OtherTickets.RemoveAll(Function(f) f.Sum(Function(g) If(input.Validators.Any(Function(h) h.isNumberValid(g)), 0, g)) > 0)
+        Dim otherfilter As New List(Of List(Of Integer))
+        Dim colums = input.OtherTickets(0).Count
+        For Each ticket In input.OtherTickets
+            If ticket.LongCount(Function(g) input.Validators.Any(Function(h) h.isNumberValid(g))) = colums Then otherfilter.Add(ticket)
+        Next
+        input.OtherTickets = otherfilter
 
         'add my ticket to otherticket list - not sure if necessary, it helps or makes it more hard to solve
         input.OtherTickets.Add(input.MyTicket)
@@ -56,27 +62,27 @@
             Next
 
             'collecting names that possible in only one place
-            For Each valid In input.Validators
-                If namefound.Contains(valid.FieldName) Then Continue For
+            'For Each valid In input.Validators
+            '    If namefound.Contains(valid.FieldName) Then Continue For
 
-                If PossibleNames.LongCount(Function(f) f.Contains(valid.FieldName)) = 1 Then 'that possible name could only contain this field name
-                    Dim index2 = PossibleNames.FindIndex(Function(f) f.Contains(valid.FieldName))
-                    PossibleNames(index2) = {valid.FieldName}.ToList
-                End If
-            Next
+            '    If PossibleNames.LongCount(Function(f) f.Contains(valid.FieldName)) = 1 Then 'that possible name could only contain this field name
+            '        Dim index2 = PossibleNames.FindIndex(Function(f) f.Contains(valid.FieldName))
+            '        PossibleNames(index2) = {valid.FieldName}.ToList
+            '    End If
+            'Next
         Loop While changed
 
         'handle input that can contain possible names = 0
-        Dim notgivenName As String = ""
-        For Each valid In input.Validators
-            If PossibleNames.LongCount(Function(f) f.Contains(valid.FieldName)) = 0 Then
-                notgivenName = valid.FieldName
-            End If
-        Next
-        If notgivenName <> "" Then
-            Dim index3 = PossibleNames.FindIndex(Function(f) f.Count = 0)
-            PossibleNames(index3) = {notgivenName}.ToList
-        End If
+        'Dim notgivenName As String = ""
+        'For Each valid In input.Validators
+        '    If PossibleNames.LongCount(Function(f) f.Contains(valid.FieldName)) = 0 Then
+        '        notgivenName = valid.FieldName
+        '    End If
+        'Next
+        'If notgivenName <> "" Then
+        '    Dim index3 = PossibleNames.FindIndex(Function(f) f.Count = 0)
+        '    PossibleNames(index3) = {notgivenName}.ToList
+        'End If
 
 
         Dim multi As Int64 = 1
