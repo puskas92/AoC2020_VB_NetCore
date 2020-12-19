@@ -28,14 +28,20 @@ Module Day13
             End If
         Next
 
+        Dim multi As Int64 = 1
+        For Each inp In inputdict.Values
+            multi *= inp
+        Next
+
         Dim sum As Int64 = 0
         'need to summarize the multipliplation of other elements, the remainder (-1*place) and the modinv of multiofothers and the number itself
         For Each inp In inputdict
             Dim MultiOfOthers As UInt64 = 1
-            For Each inp2 In inputdict
-                If inp.Key = inp2.Key Then Continue For
-                MultiOfOthers *= inp2.Value
-            Next
+            'For Each inp2 In inputdict
+            '    If inp.Key = inp2.Key Then Continue For
+            '    MultiOfOthers *= inp2.Value
+            'Next
+            MultiOfOthers = multi / inp.Value
             Dim ModinvWithOthers As UInt64 = modinv(MultiOfOthers, inp.Value)
 
             sum += (-1 * inp.Key * ModinvWithOthers * MultiOfOthers)
@@ -43,7 +49,8 @@ Module Day13
 
         'the sum is valid number, but not the smallest, it must be divided by the LCM of inputs
 
-        Dim LCM As Int64 = MathNet.Numerics.Euclid.LeastCommonMultiple(inputdict.Values.ToList)
+        'Dim LCM As Int64 = MathNet.Numerics.Euclid.LeastCommonMultiple(inputdict.Values.ToList)
+        Dim LCM As Int64 = multi 'all values are prime, so this can be done
         sum = Mod2(sum, LCM)
         Return sum
     End Function
