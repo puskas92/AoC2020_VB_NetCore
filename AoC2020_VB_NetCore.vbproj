@@ -142,16 +142,16 @@
     <None Update="Day22\Day22_test02.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="Day23\Day23_input.txt">
+    <None Update="Day25\Day25_input.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="Day23\Day23_test01.txt">
+    <None Update="Day25\Day25_test01.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="DayXX\DayXX_input.txt">
+    <None Update="Day24\Day24_input.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="DayXX\DayXX_test01.txt">
+    <None Update="Day24\Day24_test01.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Update="Day22\Day22_input.txt">
